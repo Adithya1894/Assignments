@@ -30,7 +30,7 @@ public class Server
                 InputStreamReader isr = new InputStreamReader(is);
                 BufferedReader br = new BufferedReader(isr);
                 int n = 0;
-                while(n < 20){
+                while(n < 50){
                 int number = br.read();
                  
                 System.out.println("Message received from client is " +number);
@@ -50,12 +50,12 @@ public class Server
                 }
  
                 //Sending the response back to the client.
-                /*OutputStream os = socket.getOutputStream();
+                OutputStream os = socket.getOutputStream();
                 OutputStreamWriter osw = new OutputStreamWriter(os);
                 BufferedWriter bw = new BufferedWriter(osw);
                 bw.write(returnMessage);
                 System.out.println("Message sent to the client is "+returnMessage);
-                bw.flush();*/
+                bw.flush();
                 n++;
                 }
             }
