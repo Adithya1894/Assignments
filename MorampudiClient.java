@@ -43,7 +43,7 @@ public class MorampudiClient {
     public  void receive_message(){
         logical_clock++;
         
-        logical_clock = decrypt() + 1;
+        decrypt();
         System.out.println("Receive Message Clock:" +logical_clock);
     }
 
@@ -53,7 +53,7 @@ public class MorampudiClient {
     public void internal_event(){
         logical_clock = logical_clock + 1;
         System.out.println("Internal Event Clock:" +logical_clock);
-        encrypt(logical_clock);
+        //encrypt(logical_clock);
     }
 
     /**
@@ -101,21 +101,25 @@ public class MorampudiClient {
      */
     public int decrypt(){
         int message = 0;
+       while(true){
         try {
             is_obj = socket_obj.getInputStream();
             isr_obj = new InputStreamReader(is_obj);
             br_obj = new BufferedReader(isr_obj);
-            message = br_obj.read();
-            System.out.println("Proper Clock value received from Server is: " +message);
             
+            message = br_obj.read();
+            
+            //System.out.println("Proper Clock value received from Server is: " +message);
+      		//return message/10;      
         }
         catch (Exception e )
         {
             e.printStackTrace();
         }
-
-
-        return message/10;
+        	return message/10;
+}
+	
+      
     }
 
     public static void main(String args[]){
@@ -156,8 +160,8 @@ public class MorampudiClient {
             {
                 Client_obj.send_message();
             }
-            else if(probability >= 7 && probability < 14){
-                //Client_obj.receive_message();
+            else if(probability > 7 && probability < 14){
+                Client_obj.receive_message();
             }
             else if(probability >= 14 && probability < 19)
             {
