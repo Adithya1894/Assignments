@@ -40,7 +40,7 @@ public class Server
                 try
                 {
                     //int numberInIntFormat = Integer.parseInt(number);
-                    int returnValue = number*2;
+                    int returnValue = number;
                     returnMessage = returnValue;
                 }
                 catch(NumberFormatException e)
@@ -54,7 +54,7 @@ public class Server
                 OutputStreamWriter osw = new OutputStreamWriter(os);
                 BufferedWriter bw = new BufferedWriter(osw);
                 bw.write(returnMessage);
-                System.out.println("Message sent to the client is "+returnMessage);
+                //System.out.println("Message sent to the client is "+returnMessage);
                 bw.flush();
                 n++;
                 }
