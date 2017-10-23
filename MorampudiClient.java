@@ -157,7 +157,7 @@ public class MorampudiClient {
                 Client_obj.send_message();
             }
             else if(probability >= 7 && probability < 14){
-                Client_obj.receive_message();
+                //Client_obj.receive_message();
             }
             else if(probability >= 14 && probability < 19)
             {
@@ -169,6 +169,7 @@ public class MorampudiClient {
             number++;
         }
         System.out.println(logical_clock);
+        System.out.println("hello");
     }
 
 
